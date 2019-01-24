@@ -1,6 +1,6 @@
 var atts = [];//["test0", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
-var numGuys = 5
-var numAttributes = 15;
+var numGuys = 40;
+var numAttributes = 30;
 var state = 0;
 
 
@@ -11,9 +11,9 @@ function getGuys(){
 }
 
 function updateImages(firstInd, secondInd, thirdInd){
-	var im1 = "imgs/tree" + firstInd + ".jpg";
-	var im2 = "imgs/tree" + secondInd + ".jpg";
-	var im3 = "imgs/tree" + thirdInd + ".jpg";
+	var im1 = "imgs/guy" + firstInd + ".jpg";
+	var im2 = "imgs/guy" + secondInd + ".jpg";
+	var im3 = "imgs/guy" + thirdInd + ".jpg";
 
 	console.log(im1);
 	console.log(im2);
