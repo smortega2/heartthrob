@@ -1,6 +1,6 @@
 var atts = [];//["test0", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
-var numGuys = 40;
-var numAttributes = 30;
+var numGuys = 60;
+var numAttributes = 70;
 var state = 0;
 
 
