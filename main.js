@@ -1,6 +1,6 @@
 var atts = [];//["test0", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
-var numGuys = 60;
-var numAttributes = 70;
+var numGuys = 152;
+var numAttributes = 112;
 var state = 0;
 
 
@@ -33,7 +33,7 @@ function addAttributes(){
 }
 
 function addFirstAttributes(){
-	//get attributes from file
+	//get attributes from list
 	getAttributes();
 	// update text fields
 	updateAttributes("Guy1Att1","Guy2Att1","Guy3Att1","Guy1Att2","Guy2Att2","Guy3Att2", 0,1,2,3,4,5);

@@ -9,7 +9,13 @@ h1{
 .column {
   float: left;
   width: 33.33%;
-  padding: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.row{
+  padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 /* Clearfix (clear floats) */
@@ -20,10 +26,10 @@ h1{
 }
 
 button {
-  background-color: #e7e7e7; /* Green */
+  background: rgba(79, 9, 9, 1.0);
   border: none;
-  color: black;
-  padding: 16px 40px;
+  color: #f99fbc;
+  padding: 10px 60px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -35,5 +41,12 @@ button {
 
 p {
 	font-size: 20px;
+  color:#f99fbc;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 	font-family: "Verdana", sans-serif;
+  border-radius: 25px;
+  background: rgba(79, 9, 9, 0.75)
 }
