@@ -1,6 +1,5 @@
 var atts = [];//["test0", "test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9", "test10", "test11"]
-var numGuys = 152;
-var numAttributes = 112;
+var numGuys = 221;//221;
 var state = 0;
 
 
@@ -11,17 +10,13 @@ function getGuys(){
 }
 
 function updateImages(firstInd, secondInd, thirdInd){
-	var im1 = "imgs/guy" + firstInd + ".jpg";
-	var im2 = "imgs/guy" + secondInd + ".jpg";
-	var im3 = "imgs/guy" + thirdInd + ".jpg";
+	console.log(firstInd);
+	console.log(secondInd);
+	console.log(thirdInd);
 
-	console.log(im1);
-	console.log(im2);
-	console.log(im3);
-
-	document.getElementById("Guy1").src=im1;
-	document.getElementById("Guy2").src=im2;
-	document.getElementById("Guy3").src=im3;
+	document.getElementById("Guy1").src=image_urls[firstInd];
+	document.getElementById("Guy2").src=image_urls[secondInd];
+	document.getElementById("Guy3").src=image_urls[thirdInd];
 }
 
 function addAttributes(){
@@ -33,12 +28,9 @@ function addAttributes(){
 }
 
 function addFirstAttributes(){
-	//get attributes from list
-	getAttributes();
-	// update text fields
-	updateAttributes("Guy1Att1","Guy2Att1","Guy3Att1","Guy1Att2","Guy2Att2","Guy3Att2", 0,1,2,3,4,5);
-	// update state
-	state = 1;
+	getAttributes(); //get attributes from list
+	updateAttributes("Guy1Att1","Guy1Att2","Guy2Att1","Guy2Att2","Guy3Att1","Guy3Att2", 0,1,4,5,8,9); // update text fields
+	state = 1; // update state
 }
 
 function updateAttributes(id0,id1,id2,id3,id4,id5, idx0, idx1, idx2, idx3, idx4, idx5){
@@ -51,25 +43,42 @@ function updateAttributes(id0,id1,id2,id3,id4,id5, idx0, idx1, idx2, idx3, idx4,
 }
 
 function addSecondAttributes(){
-	// update text fields
-	updateAttributes("Guy1Att3","Guy2Att3","Guy3Att3","Guy1Att4","Guy2Att4","Guy3Att4", 6,7,8,9,10,11);
-	//update state
-	state = 2;
+	updateAttributes("Guy1Att3","Guy1Att4","Guy2Att3","Guy2Att4","Guy3Att3","Guy3Att4", 2,3,6,7,10,11); // update text fields
+	state = 2; //update state
 }
 
 function getAttributes(){
-
-	var inds = chance.unique(chance.natural, 12, {min: 0, max: numAttributes-1});
-	for(var i = 0; i < 12; i++){
-		atts.push(allAttributes[inds[i]]);
-	}
-	console.log(atts);
 	// generate 12 random, unique indices
 	// use them to index into attributes file
 	// put attributes in atts list
+
+	getAttributesForOneGuy();
+	getAttributesForOneGuy();
+	getAttributesForOneGuy();
+
+	console.log(atts);
+	
 }
 
+function getAttributesForOneGuy(){
+	var score = -10;
+	while(Math.abs(score) > 2){
+		var inds = chance.unique(chance.natural, 4, {min: 0, max: attributes.length-1});
+		scores = inds.map(i => attribute_scores[i]);
+		score = scores.reduce(function(a, b) { return a + b; }, 0);
+	}
+	console.log('score ' + score);
 
+	for(var i = 0; i < 4; i++){
+		atts.push(attributes[inds[i]]);
+	}
+	inds.sort(function(a, b){return b - a});
+	for(var i = 0; i < 4; i++){
+		attributes.splice(inds[i],1);
+		attribute_scores.splice(inds[i],1);
+
+	}
+}
 
 
 
