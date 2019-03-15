@@ -62,21 +62,22 @@ function getAttributes(){
 
 function getAttributesForOneGuy(){
 	var score = -10;
+	var attribute_text = [];
+
 	while(Math.abs(score) > 2){
 		var inds = chance.unique(chance.natural, 4, {min: 0, max: attributes.length-1});
-		scores = inds.map(i => attribute_scores[i]);
-		score = scores.reduce(function(a, b) { return a + b; }, 0);
+		var attribute_slice = inds.map(i => attributes[i]);
+		var attribute_scores = attribute_slice.map(function(value,index) { return value[1]; });
+		attribute_text = attribute_slice.map(function(value,index) { return value[0]; });
+		score = attribute_scores.reduce(function(a, b) { return a + b; }, 0);
 	}
+
 	console.log('score ' + score);
 
-	for(var i = 0; i < 4; i++){
-		atts.push(attributes[inds[i]]);
-	}
 	inds.sort(function(a, b){return b - a});
 	for(var i = 0; i < 4; i++){
+		atts.push(attribute_text[i]);
 		attributes.splice(inds[i],1);
-		attribute_scores.splice(inds[i],1);
-
 	}
 }
 
